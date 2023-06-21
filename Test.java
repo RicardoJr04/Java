@@ -1,28 +1,42 @@
-package practice7;
-//OBS : queimei alguns neuronios fazendo essa atividade então espero que esteja certa
-public class Test {
+package practice4;
+import java.util.Scanner;
+
+public class Test{
+    
     public static void main(String[] args) {
-    Card cartao1 = new Card(1);
-    Card cartao2 = new Card(2);
 
-    cartao1.adicionarcreditos(100);
-    cartao2.adicionarcreditos(50);
+        ComputeMethods calculos = new ComputeMethods();
 
-    Terminal terminal = new Terminal();
+        Scanner teclado = new Scanner(System.in);
 
-    terminal.inserirCartao(cartao1);
+        System.out.print("Digite a temperatura em Fahrenheit: ");
+        double fahrenheit  = teclado.nextDouble();
+        double celsius = ComputeMethods.fToC(fahrenheit);
 
-    terminal.carregarCreditos(5);
+        System.out.printf("A temperatura em Celsius é: %3.2f \n" , celsius);
 
-    terminal.transferSaldo(cartao1, cartao2);
+        //
+        
+        System.out.print("Digite o comprimento do primeiro lado: ");
+        double lado1 = teclado.nextDouble();
+        
+        System.out.print("Digite o comprimento do segundo lado: ");
+        double lado2 = teclado.nextDouble();
 
-    terminal.inserirCartao(cartao2);
+        double hypotenusa = ComputeMethods.hypotenusa(lado1, lado2);
+        
+        teclado.close();
+        System.out.printf("Os lados do triângulo são %%2.2f, e a hipotenusa é %2.3f \n",lado1,lado2, hypotenusa);
 
-    terminal.trocarTicketsPorPremios(0);
+        //
+
+        int valorrolado = ComputeMethods.rolar();
+       
+        System.out.printf("O valor rolado no dado é: %d" , valorrolado);
 
 
-    Game jogo = new Game("Jogo dos Tíquetes Aleatórios!", 3, 5);
-    terminal.jogandoJogo(jogo);
-    }
 
+
+
+}
 }
